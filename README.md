@@ -1,7 +1,7 @@
 # research-paper-curator
 3-week program, end result : a production-grade RAG system that solves the research discovery problem.
 
-Based on : *[The Mother of AI Project?](https://jamwithai.substack.com/p/the-infrastructure-that-powers-rag)*
+Based on : *[The Mother of AI Project](https://jamwithai.substack.com/p/the-infrastructure-that-powers-rag)*
 
 Tools Implemented :
 1. OpenSearch : Semantic analysis 
