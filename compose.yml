@@ -6,6 +6,7 @@ services:
     environment:
       - POSTGRES_DATABASE_URL=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
       - OPENSEARCH_HOST=http://opensearch:9200
+      - OLLAMA_HOST=http://ollama:11434
     depends_on:
       postgres:
         condition: service_healthy
@@ -51,7 +52,20 @@ services:
       timeout: 10s
       retries: 5
       start_period: 60s
+  ollama:
+    image: ollama/ollama:0.11.2
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
 volumes:
   postgres_data:
   opensearch_data:
+  ollama_data:
