@@ -1,0 +1,29 @@
+[
+  {
+    "arxiv_id": "2401.00001",
+    "title": "Efficient Retrieval-Augmented Generation for Scientific Literature",
+    "authors": ["Ada Lovelace", "Alan Turing"],
+    "abstract": "We present a method for combining dense retrieval with large language models to answer questions over a corpus of research papers.",
+    "categories": ["cs.CL", "cs.IR"],
+    "published_date": "2024-01-03",
+    "pdf_url": "https://arxiv.org/pdf/2401.00001"
+  },
+  {
+    "arxiv_id": "2401.00002",
+    "title": "Hybrid Search Strategies for Academic Question Answering",
+    "authors": ["Grace Hopper"],
+    "abstract": "This paper explores the combination of BM25 keyword search and vector similarity to improve retrieval quality in academic settings.",
+    "categories": ["cs.IR"],
+    "published_date": "2024-01-05",
+    "pdf_url": "https://arxiv.org/pdf/2401.00002"
+  },
+  {
+    "arxiv_id": "2401.00003",
+    "title": "Chunking Strategies for Long Scientific Documents",
+    "authors": ["Katherine Johnson", "Dorothy Vaughan"],
+    "abstract": "We evaluate several chunking approaches and their effect on downstream retrieval and answer accuracy.",
+    "categories": ["cs.CL"],
+    "published_date": "2024-01-08",
+    "pdf_url": "https://arxiv.org/pdf/2401.00003"
+  }
+]
