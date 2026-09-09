@@ -51,6 +51,9 @@ input — only the source is mocked.
 
 A local `sample_papers.json` (fake papers) is read by a **loader** function in
 `src/`, which writes metadata to **PostgreSQL** and indexes searchable content
+
+## Week 2 - Agenda
+Week 2 is "fill the empty database" — you replace your sample_papers.json mock source with a real, automated pipeline that pulls actual papers from arXiv, parses them, and stores them in PostgreSQL. Your mock pipeline was the skeleton; this is the same skeleton with real muscle.
 into **OpenSearch**. This proves the downstream plumbing end-to-end and stays
 unchanged when the real arXiv fetcher replaces the JSON in Week 2. A
 `notebooks/week1/mock_pipeline.ipynb` drives the loader step by step for
