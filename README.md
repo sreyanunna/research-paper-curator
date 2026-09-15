@@ -50,11 +50,27 @@ input — only the source is mocked.
 ![Mock data pipeline](mock_data_pipeline_flow.png)
 
 A local `sample_papers.json` (fake papers) is read by a **loader** function in
-`src/`, which writes metadata to **PostgreSQL** and indexes searchable content
-into **OpenSearch**. This proves the downstream plumbing end-to-end and stays
+`src/`, which writes metadata to **PostgreSQL** and indexes searchable content into **OpenSearch**. This proves the downstream plumbing end-to-end and stays
 unchanged when the real arXiv fetcher replaces the JSON in Week 2. A
 `notebooks/week1/mock_pipeline.ipynb` drives the loader step by step for
 verification.
 
 *Current progress:* the file → loader step is complete; the PostgreSQL and
 OpenSearch writes are the next steps.
+
+## Week 2 - Agenda
+Week 2 is "fill the empty database" — you replace your sample_papers.json mock source with a real, automated pipeline that pulls actual papers from arXiv, parses them, and stores them in PostgreSQL. Your mock pipeline was the skeleton; this is the same skeleton with real muscle.
+
+service files configured and rate limit testing : 
+```
+src/services/
+├── arxiv/                   # Smart arXiv API integration
+│   ├── client.py            # Rate-limited, retry-aware client
+│   └── factory.py           # Clean service instantiation
+├── pdf_parser/              # Scientific PDF processing
+│   ├── docling.py           # Docling integration for academic papers
+│   ├── parser.py            # Abstract interface
+│   └── factory.py           # Parser factory pattern
+└── metadata_fetcher.py      # The orchestrator that ties together
+```
+
