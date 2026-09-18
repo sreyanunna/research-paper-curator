@@ -58,7 +58,8 @@ class ArxivClient:
         for attempt in range(1, self.max_retries + 1):
             self._limiter.wait()  # respect the 3s gap before EVERY attempt
             try:
-                response = httpx.get(self.base_url, params=params, timeout=self.timeout)
+                #response = httpx.get(self.base_url, params=params, timeout=self.timeout)
+                response = httpx.get(self.base_url, params=params, timeout=self.timeout, follow_redirects=True)
                 response.raise_for_status()
                 feed = feedparser.parse(response.text)
                 return [
