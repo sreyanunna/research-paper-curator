@@ -73,4 +73,5 @@ src/services/
 │   └── factory.py           # Parser factory pattern
 └── metadata_fetcher.py      # The orchestrator that ties together
 ```
-
+Docling : pdf parser made to specially parse special characters and diagrams in scnetific research papers 
+Airflow orchestrator : Reading the production DAG; setting up the scheduler; 
