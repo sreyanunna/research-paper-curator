@@ -73,4 +73,8 @@ src/services/
 │   └── factory.py           # Parser factory pattern
 └── metadata_fetcher.py      # The orchestrator that ties together
 ```
+Docling : pdf parser made to specially parse special characters and diagrams in scnetific research papers 
+Airflow orchestrator : Reading the production DAG; setting up the scheduler; 
 
+Week 3 - Stats
+Week 3 is the "search" link in the chain the series keeps drawing: infra → data → search → generation. Its whole stance is one you'll like given how you're building — don't jump to vectors. Stand up a keyword-first (BM25) retrieval layer that already answers a good share of queries cheaply and explainably, then measure hybrid against it in Week 4. Keyword-first is the incremental-rebuild philosophy applied to retrieval.
