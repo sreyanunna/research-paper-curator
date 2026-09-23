@@ -64,7 +64,44 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
-
+  ```dockercompose
+airflow:
+    build: 
+      context: ./airflow
+      dockerfile: Dockerfile
+    container_name: rag-airflow
+    # user: "50000:0"  # Uncomment for WSL/Ubuntu, comment out for Mac
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      # Airflow-specific environment setup
+      - AIRFLOW_HOME=/opt/airflow
+      - PYTHONPATH=/opt/airflow/src
+      # Container hostnames for Airflow
+      - POSTGRES_DATABASE_URL=postgresql+psycopg2://rag_user:rag_password@postgres:5432/rag_db
+      - OPENSEARCH_HOST=http://opensearch:9200
+      - OPENSEARCH__HOST=http://opensearch:9200
+      - OLLAMA_HOST=http://ollama:11434
+      - REDIS__HOST=redis
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - airflow_logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - ./src:/opt/airflow/src
+    ports:
+      - "8080:8080"
+    # Command handled by entrypoint.sh
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+    networks:
+      - rag-network
 volumes:
   postgres_data:
   opensearch_data:
