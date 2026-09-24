@@ -70,7 +70,7 @@ airflow:
       context: ./airflow
       dockerfile: Dockerfile
     container_name: rag-airflow
-    # user: "50000:0"  # Uncomment for WSL/Ubuntu, comment out for Mac
+    user: "50000:0"  # Uncomment for WSL/Ubuntu, comment out for Mac
     depends_on:
       postgres:
         condition: service_healthy
@@ -106,3 +106,4 @@ volumes:
   postgres_data:
   opensearch_data:
   ollama_data:
+  airflow_logs:
