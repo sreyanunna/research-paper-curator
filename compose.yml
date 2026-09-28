@@ -12,6 +12,8 @@ services:
         condition: service_healthy
       opensearch:
         condition: service_healthy
+    networks:
+      - rag-network
 
   postgres:
     image: postgres:16-alpine
@@ -23,12 +25,16 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      # Only runs on a fresh (empty) volume: creates the Airflow metadata DB
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 5s
       timeout: 5s
       retries: 10
       start_period: 30s
+    networks:
+      - rag-network
 
   opensearch:
     image: opensearchproject/opensearch:2.19.0
@@ -52,6 +58,28 @@ services:
       timeout: 10s
       retries: 5
       start_period: 60s
+    networks:
+      - rag-network
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.19.0
+    ports:
+      - "5601:5601"
+    environment:
+      - OPENSEARCH_HOSTS=http://opensearch:9200
+      - DISABLE_SECURITY_DASHBOARDS_PLUGIN=true
+    depends_on:
+      opensearch:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5601/api/status || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    networks:
+      - rag-network
+
   ollama:
     image: ollama/ollama:0.11.2
     ports:
@@ -64,12 +92,13 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
-  ```dockercompose
-airflow:
-    build: 
+    networks:
+      - rag-network
+
+  airflow:
+    build:
       context: ./airflow
       dockerfile: Dockerfile
-    container_name: rag-airflow
     user: "50000:0"  # Uncomment for WSL/Ubuntu, comment out for Mac
     depends_on:
       postgres:
@@ -77,15 +106,15 @@ airflow:
     env_file:
       - .env
     environment:
-      # Airflow-specific environment setup
       - AIRFLOW_HOME=/opt/airflow
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      # Local dev only: skip the login screen (Airflow 3 simple auth manager)
+      - AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS=True
       - PYTHONPATH=/opt/airflow/src
       # Container hostnames for Airflow
-      - POSTGRES_DATABASE_URL=postgresql+psycopg2://rag_user:rag_password@postgres:5432/rag_db
+      - POSTGRES_DATABASE_URL=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
       - OPENSEARCH_HOST=http://opensearch:9200
-      - OPENSEARCH__HOST=http://opensearch:9200
       - OLLAMA_HOST=http://ollama:11434
-      - REDIS__HOST=redis
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - airflow_logs:/opt/airflow/logs
@@ -95,15 +124,20 @@ airflow:
       - "8080:8080"
     # Command handled by entrypoint.sh
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/v2/monitor/health"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 120s
     networks:
       - rag-network
+
 volumes:
   postgres_data:
   opensearch_data:
   ollama_data:
   airflow_logs:
+
+networks:
+  rag-network:
+    driver: bridge
