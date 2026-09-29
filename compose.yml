@@ -110,7 +110,7 @@ services:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       # Local dev only: skip the login screen (Airflow 3 simple auth manager)
       - AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS=True
-      - PYTHONPATH=/opt/airflow/src
+      - PYTHONPATH=/opt/airflow/
       # Container hostnames for Airflow
       - POSTGRES_DATABASE_URL=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
       - OPENSEARCH_HOST=http://opensearch:9200
