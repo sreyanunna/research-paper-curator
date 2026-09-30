@@ -12,6 +12,7 @@ dependencies = [
     "docling>=2.128.0",
     "fastapi[standard]>=0.141.1",
     "feedparser>=6.0.14",
+    "opensearch-py>=3.2.0",
 ]
 
 [project.scripts]

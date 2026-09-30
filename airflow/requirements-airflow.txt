@@ -1,0 +1,5 @@
+# Libraries our DAG tasks import that the base Airflow image doesn't ship.
+# (httpx, sqlalchemy 1.4, pydantic, psycopg2 are already in apache/airflow:3.0.0)
+feedparser>=6.0.14
+opensearch-py>=3.2.0
+docling>=2.0.0

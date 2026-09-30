@@ -7,10 +7,14 @@ USER root
 COPY entrypoint.sh /opt/airflow/entrypoint.sh
 RUN chmod +x /opt/airflow/entrypoint.sh
 
-# Later, when DAGs need your libraries (opensearch-py, sqlalchemy, etc.):
-#   USER airflow
-#   COPY requirements-airflow.txt /tmp/req.txt
-#   RUN pip install --no-cache-dir -r /tmp/req.txt
-
 USER airflow
+# Libraries our DAG tasks need. Pinning apache-airflow stops pip from
+# upgrading/downgrading Airflow itself while resolving these. The CPU-only
+# PyTorch index keeps docling from pulling multi-GB CUDA wheels.
+COPY requirements-airflow.txt /tmp/requirements-airflow.txt
+RUN pip install --no-cache-dir \
+    --extra-index-url https://download.pytorch.org/whl/cpu \
+    "apache-airflow==${AIRFLOW_VERSION}" \
+    -r /tmp/requirements-airflow.txt
+
 ENTRYPOINT ["/opt/airflow/entrypoint.sh"]
