@@ -1,0 +1,408 @@
+[
+  {
+    "arxiv_id": "2401.00001",
+    "title": "Efficient Retrieval-Augmented Generation for Scientific Literature",
+    "authors": [
+      "Ada Lovelace",
+      "Alan Turing"
+    ],
+    "abstract": "We present a method for combining dense retrieval with large language models to answer questions over a corpus of research papers.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published_date": "2024-01-03",
+    "pdf_url": "https://arxiv.org/pdf/2401.00001"
+  },
+  {
+    "arxiv_id": "2401.00002",
+    "title": "Hybrid Search Strategies for Academic Question Answering",
+    "authors": [
+      "Grace Hopper"
+    ],
+    "abstract": "This paper explores the combination of BM25 keyword search and vector similarity to improve retrieval quality in academic settings.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published_date": "2024-01-05",
+    "pdf_url": "https://arxiv.org/pdf/2401.00002"
+  },
+  {
+    "arxiv_id": "2401.00003",
+    "title": "Chunking Strategies for Long Scientific Documents",
+    "authors": [
+      "Katherine Johnson",
+      "Dorothy Vaughan"
+    ],
+    "abstract": "We evaluate several chunking approaches and their effect on downstream retrieval and answer accuracy.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published_date": "2024-01-08",
+    "pdf_url": "https://arxiv.org/pdf/2401.00003"
+  },
+  {
+    "arxiv_id": "2609.40360v1",
+    "title": "Semifactual Credit-Augmented Policy Optimization",
+    "authors": [
+      "Junshu Pan",
+      "Zhizhang Fu",
+      "Shulin Huang",
+      "Yiran Ding",
+      "Zifan Cheng",
+      "Wenqi Shao",
+      "Qiaosheng Zhang",
+      "Yue Zhang"
+    ],
+    "abstract": "Reinforcement learning with verifiable rewards (RLVR) has improved the reasoning capabilities of large language models (LLMs), yet their predictions remain sensitive to task-irrelevant prompt features. We investigate this sensitivity through semifactual prompt interventions that preserve the underlying problem and its answer. Our analysis reveals substantial variation in token-level sensitivity and shows that suppressing high-drift token candidates during decoding improves reasoning accuracy without updating model weights. These findings highlight a limitation of Group Relative Policy Optimization (GRPO), which assigns the same outcome-derived advantage to every response token and may reinforce potential spurious dependence alongside useful reasoning. Motivated by this observation, we introduce Semifactual Credit-Augmented Policy Optimization (SCAPO), a causally inspired variant of GRPO that incorporates semifactual stability into token-level credit assignment. SCAPO measures token probability drift for fixed responses under semifactual interventions and uses normalized stability scores to reduce advantages for relatively unstable tokens during early training, while granting no additional credit for stability alone. On Qwen3-4B-Base and Qwen3-1.7B-Base, SCAPO improves AIME 2024-2026 accuracy over GRPO by 5.63 and 4.17 percentage points, respectively. At both model scales, SCAPO achieves the best results on most evaluated mathematics benchmarks and all evaluated out-of-distribution benchmarks among the compared methods. These results suggest that semifactual stability provides an effective training signal for improving reasoning and generalization through finer-grained credit assignment in RLVR. The code is available at https://github.com/DtYXs/SCAPO.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:59:56Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40360v1"
+  },
+  {
+    "arxiv_id": "2609.40356v1",
+    "title": "ViTeX-Bench: Benchmarking High-Fidelity Video Scene Text Editing",
+    "authors": [
+      "Xinghao Chen",
+      "Xiangbo Gao",
+      "Jiongze Yu",
+      "Yuheng Wu",
+      "Zhengzhong Tu"
+    ],
+    "abstract": "Recent video generation is increasingly realistic and controllable, yet video editing remains less developed, particularly for precise local edits that must preserve the original scene dynamics. Video scene text editing replaces text on scene surfaces, such as storefront signs, whiteboards, and product labels, while preserving the surrounding content, motion, and camera dynamics. Although scene text editing is well studied for images, video scene text editing that achieves high visual quality, temporal consistency, and edit locality remains underexplored. Existing resources offer limited paired real-video data, and general video-editing metrics do not directly measure whether the requested text remains correct over time. We introduce ViTeX-Bench, a benchmark suite comprising ViTeX-Dataset and a three-axis evaluation protocol. The dataset contains 387 real-world 720p videos with text-region masks and editing instructions: 230 provide reviewed, pipeline-generated paired edits for training, and 157 form a frozen evaluation split. The protocol evaluates text correctness, visual and temporal quality, and edit locality through 13 metrics, with one primary metric per axis and a Pareto comparison of their trade-offs. OCR calibration, human evaluation, and annotation-sensitivity analyses support the interpretation of these scores. Across eight baselines from four editing families, accurate text, temporal stability, and scene preservation remain difficult to achieve together. We also release ViTeX-Edit-14B, an open-source reference editor fine-tuned on the paired training split with motion-aligned glyph-video conditioning. It achieves CharAcc 0.688, the highest mean among the evaluated video-native editors, and the lowest comparable text-crop Warp among raw editor outputs. ViTeX-Bench provides a reproducible foundation for studying these trade-offs in video scene text editing.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:59:33Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40356v1"
+  },
+  {
+    "arxiv_id": "2609.40330v1",
+    "title": "Turbo Harness: Instance-Adaptive Harness Optimization",
+    "authors": [
+      "Tunyu Zhang",
+      "Hao Wang",
+      "Kai Xu",
+      "Dimitris N. Metaxas"
+    ],
+    "abstract": "Automating the search for effective harnesses is an important step toward enabling agents to recursively self-improve. Existing harness optimizations typically produce a single global harness that is applied uniformly across task instances. However, a harness that works well on average may not be optimal for every instance. We introduce Turbo Harness, a framework that can adapt a globally optimized harness to each instance by reusing information generated during the original optimization process. Specifically, Turbo Harness recycles artifacts produced during a completed global harness optimization run, and summarizes them into a structured playbook. We train a harness editor to leverage this prior optimization experience to generate instance-specific patches to the global harness. At inference time, the editor uses the instance and the playbook to construct a tailored harness in which the execution model operates. Through numerical experiments, we show that Turbo Harness consistently outperforms existing harness optimization baselines across seven benchmarks spanning interactive agent tasks, software engineering, and long-horizon terminal tasks.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:56:09Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40330v1"
+  },
+  {
+    "arxiv_id": "2609.40325v1",
+    "title": "WorldAuditBench: Interactive 3D World Auditing with Multimodal Agents",
+    "authors": [
+      "Ziyan Jiang",
+      "Jingbo Yang",
+      "Jiabao Ji",
+      "Yujian Liu",
+      "Qiucheng Wu",
+      "Tommi Jaakkola",
+      "Yang Zhang",
+      "Shiyu Chang"
+    ],
+    "abstract": "As interactive 3D worlds are increasingly used to study intelligent behavior, it becomes important to develop efficient pipelines for identifying anomalies in these simulated environments, such as floating objects, traversable walls, or objects inconsistent with the surrounding scene. Multimodal AI systems, including vision-language models (VLMs) and vision-language-action models (VLAs), have shown potential for automating this task. However, 3D world auditing is complex, requiring the close coupling of two distinct capabilities: action, to navigate the 3D world and search for anomalies systematically and efficiently; and visual reasoning, to understand the environment and identify anomalies from multimodal observations. It remains largely unexplored whether multimodal agents can effectively couple these two capabilities, using visual reasoning to identify potential anomalies while taking actions to validate them. In this paper, we introduce WorldAuditBench, a benchmark for 3D world auditing comprising 213 anomaly tasks across 13 environments built with Unreal Engine 5 and Three.js, spanning five anomaly families. We evaluate five frontier models under a fixed exploration budget using two auditing paradigms: VLA-based exploration followed by VLM-based anomaly identification, and an end-to-end VLM agent in which visual reasoning directly guides action selection. Across the evaluated models and two paradigms, success rates range from 6.6% to 42.3%, substantially below human performance (83.4%). Through the task of world auditing, WorldAuditBench provides a testbed for studying how multimodal agents couple action and visual reasoning in interactive 3D environments, while highlighting current limitations in their ability to gather and interpret evidence during exploration.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:55:29Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40325v1"
+  },
+  {
+    "arxiv_id": "2609.40324v1",
+    "title": "Cogentic: Multi-Agent Orchestration for Automated Proof Discovery",
+    "authors": [
+      "Yang Cai",
+      "Vineet Gupta",
+      "Yanchen Jiang",
+      "Christopher Liaw",
+      "Aranyak Mehta",
+      "Grigoris Velegkas",
+      "Di Wang"
+    ],
+    "abstract": "We present Cogentic, a multi-agent harness for automated proof discovery on open research problems. While frontier language models can generate strong mathematical ideas in a single shot, single-shot generation is often insufficient for open problems that require exploring multiple competing conjectures, overcoming subtle technical obstructions, and retaining intermediate progress over a long horizon. Cogentic addresses these challenges through an iterative prove--verify loop in which an orchestrator allocates a population of independent provers across distinct proof directions, subjects their output to adversarial verification by several specialized components, and promotes confirmed intermediate results into a persistent verified ledger that later rounds build on. The harness is designed to be able to solve research-level math and theoretical computer science problems. Using Gemini as the base model, Cogentic produced novel results on five open problems across online learning, auction theory, and mechanism design. Each result was independently verified by domain experts and is developed in full in companion papers. We list these results, and new ones as they are verified, at https://sites.google.com/view/cogentic .",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:55:22Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40324v1"
+  },
+  {
+    "arxiv_id": "2609.40322v1",
+    "title": "MatLoom: Layered Text-to-Material Generation in a Compact Program Space",
+    "authors": [
+      "Anson Y. Lam",
+      "Shuqing Li",
+      "Michael R. Lyu"
+    ],
+    "abstract": "Material generation should produce not only an appearance, but also the rules that construct it. We introduce MatLoom, a compact, layer-oriented language for text-to-material generation with pretrained language models. Each program composes alpha-masked layers whose shared spatial expressions define coverage and physically based rendering (PBR) channels, making dependencies between patterns, color, and relief explicit. A standalone interpreter evaluates the program into material maps, while the source retains named fields and layer parameters for subsequent authoring. Without task-specific fine-tuning, our pipeline uses parser-guided repair and preview-based critique to revise material designs, then searches noise seeds while keeping each candidate's remaining source fixed. On a curated benchmark of 141 prompts evaluated with six backbones, our best-performing configuration achieves higher mean scores than three diffusion baselines on all four flat-layout prompt-alignment metrics. Its initial programs already exceed all three baselines on mean BLIPScore, before critique or seed search. Retained programs have a median length of 21 lines when pooled across backbones. In a blind four-way comparison involving 30 participants and 20 prompts, our renders receive 59.2% of choices, compared with 19.3% for the most-preferred baseline. Compact executable programs thus offer a way to generate prompt-aligned materials while retaining their construction as part of the asset.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:55:06Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40322v1"
+  },
+  {
+    "arxiv_id": "2609.40316v1",
+    "title": "Scaling Laws for Looped Mixture of Experts",
+    "authors": [
+      "Yanbei Chen",
+      "Anirudh Goyal",
+      "Raghuraman Krishnamoorthi"
+    ],
+    "abstract": "Looped transformers and Mixture-of-Experts (MoE) offer complementary routes to efficient scaling: recurrence increases computational depth at fixed parameters, while MoE sparsity expands total capacity at fixed active compute. Yet existing scaling laws model recurrence or sparsity in isolation. In this work, we introduce Loop Scaling Laws, the first scaling law to jointly model recurrence and sparsity alongside model size and data. At its core is a bounded, sparsity-conditional recurrence mapping that characterizes the effective-parameter gain from looping and how sparsity raises this gain. The laws predict the held-out loss of looped models more accurately than prior alternatives, and recover the standard dense and MoE scaling laws as special cases. Beyond prediction, the fitted laws provide a principled foundation for designing looped MoE models under compute and memory constraints. Downstream evaluations further demonstrate the complementary benefits of the two axes: sparsity delivers ~3x active-parameter efficiency, recurrence yields ~2x total-parameter efficiency on reasoning, and joint scaling further advances the performance frontier. As a practical extension, we show these gains hold at trillion-token scale: at matched training compute, a looped MoE with law-derived recurrence matches a ~2x larger non-looped MoE on the reasoning benchmarks, while enabling test-time scaling through recurrence.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:53:47Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40316v1"
+  },
+  {
+    "arxiv_id": "2609.40306v1",
+    "title": "DynaHarness: A Dynamic Physical Harness for Self-Evolving Robot Agents",
+    "authors": [
+      "Haoyuan Deng",
+      "Jiebin Liu",
+      "Tengxiao Zhang",
+      "Langning Yan",
+      "Hongye Cao",
+      "Ziwei Wang"
+    ],
+    "abstract": "Pretrained robot policies provide useful action priors, but long-horizon manipulation still requires coordination between semantic reasoning and physical execution. Semantic reasoning operates at a coarser timescale than physical interaction, while episode-level failures provide limited guidance on which system component should be revised. We propose DynaHarness, a dynamic physical harness that couples semantic reasoning with physical governance through a shared execution contract and turns failure evidence into validated capability revisions. To be more specific, the slow brain proposes capabilities and symbolic arguments, while the fast brain grounds and monitors commands, refuses unresolved actions, substitutes capabilities, and requests replans when needed. The physical execution contract bounds each accepted command and records execution evidence across analytic skills, recovery skills, and the frozen VLA. Failure attribution localizes faults in these records and directs targeted revisions of reusable capabilities or execution mechanisms. Paired regression checks govern admission or rejection, closing the self-evolution loop. On LIBERO-Pro, DynaHarness achieves 75.2% on 800 newly sampled initial states, compared with 17.5% for the frozen policy. With the same capability library, full dynamic execution reaches 74.0% versus 63.9% under nominal one-step replanning. This demonstrates the value of DynaHarness as a dynamic physical harness that governs how existing capabilities are grounded, monitored, and coordinated during execution. Our project page is at https://denghaoyuan123.github.io/Dynaharness_page/.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:52:09Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40306v1"
+  },
+  {
+    "arxiv_id": "2609.40303v1",
+    "title": "How Much of a Harness Does a Strong Agent Need for Autonomous ML Engineering?",
+    "authors": [
+      "Kirill Brilliantov",
+      "Alejandro Hern\u00e1ndez-Cano",
+      "Emmanuel Abb\u00e9"
+    ],
+    "abstract": "Recent autonomous machine learning engineering (MLE) agents have made significant progress on public leaderboards. Often motivated by progress stagnation over long-horizon cycles and limited Large Language Model (LLM) primitives, modern MLE agents are deployed on top of increasingly elaborate machinery: multi-agent orchestrators, dedicated retrieval subagents, and more. While such harnesses expand, the use of more primitive but improved coding agents - where LLMs have direct access to the execution environment through read, write, and bash primitives - has received little attention in the field. In this paper we find that, under an equal time budget and the same frontier LLM backbone, open-source state-of-the-art harnesses provide no advantages over a single session of a minimal-harness coding agent baseline, pointing to the backbone as the primary driver for performance. Via a series of large-scale systematic ablation studies, we argue that the machinery layers become redundant in the coding agent setting. We conclude that the effort spent elaborating hand-crafted harnesses around strong models yields poor returns for current MLE benchmarks.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:51:30Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40303v1"
+  },
+  {
+    "arxiv_id": "2609.40290v1",
+    "title": "CAS II: Symmetric Partitions as Kolmogorov Models",
+    "authors": [
+      "Romie Banerjee"
+    ],
+    "abstract": "In algorithmic statistics a string x is explained by a finite set containing it, and Kolmogorov's structure function records the smallest such model at each level of complexity. Vereshchagin's strong models, those computable from the data by a total algorithm, are essentially the cells of simple partitions. We read a partition of binary strings as a hypothesis, with the cell containing x as its model, and develop algorithmic statistics over symmetric partitions: the orbit partitions of groups acting on strings. The Galois connection between subgroups and partitions gives each ambient group a lattice of symmetric partitions, with canonical certificates, canonical costs, and an algebra of hypotheses. The resulting structure function and symmetric sophistication measure which part of the regularity of x is symmetric. For the full symmetric group every partition is symmetric: cells recover all Kolmogorov models, cells of cheap partitions recover exactly the strong models, and normal and strange strings are characterized by symmetry. For GL(n,2) the cells are exactly the linearly homogeneous sets, so linear symmetry is a restricted model class. For nonzero x, the linear-symmetry structure function lies in a band between the sufficiency line and the trivial bound, and both edges are attained: there are stochastic normal strings whose simple structure is invisible to linear symmetry. We also give coordinates on the space of permutation groups: each group is an element of a Burnside ring (its type) together with a permutation (its placement), and restriction moves refine partitions via the Mackey formula. In these coordinates the collapse for the symmetric group is a statement about placement, a linear hypothesis is determined by its type up to n^2 bits, and the maximal gap theorem shows that any space of symmetry hypotheses small enough to search is small enough to miss simple structure.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:49:15Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40290v1"
+  },
+  {
+    "arxiv_id": "2609.40286v1",
+    "title": "Linguistic Loopholes in LLM Unlearning: From a 174-Language Benchmark to Coverage-Aware Unlearning",
+    "authors": [
+      "Tyler Skow",
+      "Shravan Chaudhari",
+      "Rama Chellappa",
+      "Abhay Yadav"
+    ],
+    "abstract": "Unlearning a fact in one language does not guarantee its removal in others as changing the query or even the requested answer language can reopen seemingly forgotten knowledge -- a cross-lingual loophole. The most straightforward solution to this challenge -- unlearning in all languages -- is neither scalable nor desirable as it amplifies damage to unrelated model capabilities. We introduce the task of language budgeted multilingual unlearning where the goal is to select a subset of languages that maximizes cross-lingual erasure. To study this task we introduce the Cross-Lingual Unlearning Tensor, an unlearning benchmark that spans 174 language--script pairs and 25 atomic paraphrase types to examine when forgetting generalizes across linguistic expressions of the same knowledge. We further propose COVER, which selects source languages to maximize predicted COVERage of languages receiving no forget supervision, enabling unlearning on a language budget. Surprisingly, we find naively selecting strong individual sources does not reliably compose into strong source sets motivating our development of COVER. At deployment COVER only requires benign calibration data and access to the frozen model. Across three model families and two disjoint forget sets, COVER reduces mean held-out residual access by 7.8--27.3% relative to uniform source selection. We find these gains extend beyond synthetic benchmarks to real news documents in low-resource language settings using human translated data from the Low Resource Languages for Emergent Incidents (LORELEI) corpus.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:48:13Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40286v1"
+  },
+  {
+    "arxiv_id": "2609.40285v1",
+    "title": "PivotOPD: Learning to Recover from Pivotal Mistakes in Multi-Turn Agents",
+    "authors": [
+      "Yinghui He",
+      "Yapei Chang",
+      "Khushi Bhardwaj",
+      "Daniele Molinari",
+      "Tugrul Konuk",
+      "Jan Kautz",
+      "Ali Hatamizadeh"
+    ],
+    "abstract": "On-policy distillation (OPD) is a promising approach for training language agents, providing dense teacher supervision on student-generated trajectories. However, in multi-turn interaction, an incorrect action changes the states the student encounters later, so errors compound across turns. In preliminary experiments across three Qwen3 models (8B to 235B), we find that more than half of the failed rollouts contain a pivotal mistake, an action that moves the agent farther from completing the task, and this mistake typically occurs early. These pivotal mistakes often remain recoverable: guiding the model for only a few turns after the pivotal turn can restore task success. We therefore propose PivotOPD, an on-policy distillation framework that jointly trains the student to prevent pivotal mistakes and to recover from the states they create. At each pivotal mistake, a teacher model provides a gold action and then names a recovery action at each of the next few turns. Preventive distillation uses the gold action with reverse KL to steer the student away from the pivotal mistake, while recovery distillation uses the recovery actions with forward KL to transfer recovery behaviors that the student rarely samples. Against 13 baselines on ALFWorld, WebShop, and Search-based QA, PivotOPD achieves the strongest average performance for both Qwen3-1.7B and Qwen3-8B students, improving over the strongest baseline on ALFWorld by +5.5% with the 1.7B student. The gains also transfer to another model family on the software engineering domain, where PivotOPD raises the resolve rate of a Nemotron-3.5 student on SWE-Bench Verified by +3.2%. Project page: https://research.nvidia.com/labs/lpr/pivotopd/",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:48:11Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40285v1"
+  },
+  {
+    "arxiv_id": "2609.40284v1",
+    "title": "cua-speedrun: Standardized Benchmarking of the Speed of Computer-Use Agents",
+    "authors": [
+      "Pranjal Aggarwal",
+      "Lawrence Keunho Jang",
+      "Sean Welleck",
+      "Daniel Fried",
+      "Ruslan Salakhutdinov",
+      "Jing Yu Koh"
+    ],
+    "abstract": "Computer use agents (CUAs), which use graphical user interfaces (GUIs) to complete tasks on a computer, have recently surpassed human performance on many standard benchmarks, including difficult long-horizon tasks. Their capabilities are undoubtedly impressive, however, a key barrier to the widespread adoption and deployment of CUAs remains their speed and cost. Progress towards faster yet capable CUAs requires reliable evaluation of their speed, but many CUA benchmarks currently face a reproducibility crisis. Benchmarks are based on complex infrastructure with varying machine and container configurations that confound the evaluation of the execution speed of CUAs. Towards addressing this gap, we propose cua-speedrun, which introduces standardized infrastructure and task sets, with a focus on evaluating the speed and efficiency of CUAs. cua-speedrun uses a uniform virtual machine setup and execution pipeline, along with a common agent interface that enables single-agent implementations to operate seamlessly across different benchmarks. Across four different CUA benchmarks, we evaluate how reasoning effort, agent harnesses, and environment latency affect performance, speed, and cost. We find no single model family is optimal for all three; none of the open-weight models are on the frontier, and also, unintuitively, for some models increasing the reasoning effort can speed up task completion, while faster environment input-output can slow down overall task completion time. We also demonstrate that we can effectively reduce the evaluation task set of most CUA benchmarks without degrading overall statistical power, allowing for more efficient benchmarking and comparison. We believe cua-speedrun will enable structured progress towards fast, efficient CUAs, unlocking new real-world use cases and applications. All code, infrastructure, and analysis are available at https://cuaspeedrun.com.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:48:06Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40284v1"
+  },
+  {
+    "arxiv_id": "2609.40269v1",
+    "title": "Belief-Aware Multi-Agent Path Finding under Map Uncertainty",
+    "authors": [
+      "Viraj Parimi",
+      "Shao-Hung Chan",
+      "Han Zhang",
+      "Jingkai Chen",
+      "Brian Williams"
+    ],
+    "abstract": "Multi-Agent Path Finding (MAPF) aims to find collision-free paths for multiple agents in a shared environment. Classical MAPF assumes that all static obstacles are known in advance, but real-world environments can change unexpectedly due to fallen objects, spills, or other local disturbances. When such changes are spatially correlated, an observation can inform traversability estimates beyond the observed location. Prior approaches address uncertainty in traversability through contingent plans or replanning based on direct observations, but do not leverage this spatial dependence to infer the traversability of nearby unobserved locations. As a result, they cannot use one observation to anticipate nearby unobserved obstacles that may cause costly rerouting later. We focus on Belief-Aware MAPF, where map discrepancies are fixed during execution but initially unknown, and observations can be informative beyond the observed location. We propose Multi-Agent Gaussian belief Inference for Coordination (MAGIC), a framework that updates a shared belief about traversability online based on agents' observations. MAGIC uses a Gaussian Markov Random Field and Gaussian Belief Propagation to approximately infer traversability and construct detour-aware costs for standard MAPF planners. Our experiments on MAPF benchmarks show that MAGIC reduces the executed sum of costs compared to existing approaches on 96.3% of instances, across several planner families and teams of up to 800 agents, demonstrating its applicability to large-scale MAPF problems.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:44:19Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40269v1"
+  },
+  {
+    "arxiv_id": "2609.40253v1",
+    "title": "ComputerSD: Online Self-Distillation from Real-Time Feedback for Computer-Use Agents",
+    "authors": [
+      "Yong Du",
+      "Tongbo Chen",
+      "Zhengxi Lu",
+      "Yizhou Liu",
+      "Bofan Chen",
+      "Tao Jiang",
+      "Wenhao Xu",
+      "Yongliang Shen"
+    ],
+    "abstract": "Online training enables computer-use agents (CUAs) to improve through interaction with executable environments. However, existing methods primarily rely on sparse outcome rewards, which provide no supervision for intermediate actions. On-policy self-distillation (OPSD) offers token-level learning signals through privileged rescoring, but directly applying it to CUA online training presents two challenges: fixed guidance may become misaligned with the student's current state, and guidance-induced probability shifts may conflict with step-level correctness. We introduce ComputerSD, an online self-distillation method for CUAs that converts real-time feedback from executed GUI transitions into guidance for policy learning. A fine-tuned GUI analyzer produces guidance and a step-level value score after each action; the guidance provides privileged context, while the score regulates the resulting OPSD signals. ComputerSD jointly optimizes token-level OPSD and trajectory-level GRPO in a fully asynchronous training framework. On OSWorld-Verified, ComputerSD outperforms outcome-only GRPO by 1.9 and 4.1 percentage points on the general-purpose Qwen3-VL-8B-Thinking and specialized EvoCUA-8B backbones, respectively. Evaluation in out-of-distribution settings further supports the generalizability of ComputerSD. These results demonstrate the effectiveness of learning from real-time feedback through online self-distillation for CUAs.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:40:09Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40253v1"
+  },
+  {
+    "arxiv_id": "2609.40230v1",
+    "title": "EviRover: Reinforcing Agentic Perception Beyond a Glance",
+    "authors": [
+      "Kaixuan Fan",
+      "Kaituo Feng",
+      "Tianshuo Peng",
+      "Yilei Jiang",
+      "Manyuan Zhang",
+      "Junke Wang",
+      "Xiangyu Yue"
+    ],
+    "abstract": "Visual perception is conventionally formulated as a one-shot prediction from a single glance at the image, under the assumption that the image content and the model's parametric knowledge suffice to resolve the query. This assumption often fails in real-world scenarios that hinge on fine-grained visual details or require knowledge-intensive and up-to-date information. We term such cases \\textit{perception under insufficient evidence} and formulate perception as an agentic process that can obtain information beyond a single glance. To address the absence of data for this setting, we design two dedicated data generation pipelines, yielding EviRover-SFT-5K and EviRover-RL-12K for training. We further construct EviLens, a human-verified benchmark comprising 688 instances across five perception categories. Building on these data, we present EviRover, to our knowledge the first perception agent explicitly trained to resolve perceptual queries through interaction, using supervised fine-tuning followed by agentic reinforcement learning. Experiments show that the 4B EviRover outperforms its backbone by 30 points on average on EviLens, reaching performance comparable to advanced proprietary models. The gains transfer beyond EviLens to WebEyes, conventional perception benchmarks, and general multimodal benchmarks, including a 15-point improvement on BrowseComp-VL. All code, models, and data are released.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:30:09Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40230v1"
+  },
+  {
+    "arxiv_id": "2609.40221v1",
+    "title": "PhantomEnvironments: Training LLM Agents in Fictional Worlds",
+    "authors": [
+      "Anmol Kabra",
+      "Swathi Saravana Selvam",
+      "Albert Gong",
+      "Chao Wan",
+      "Christian Belardi",
+      "Dongyoung Go",
+      "Katie Z. Luo",
+      "Kilian Q. Weinberger"
+    ],
+    "abstract": "Training LLM agents with reinforcement learning (RL) is bottlenecked by environments, which must provide verifiable rewards, support long-horizon interaction, and scale cheaply. Existing approaches rely on costly human-curated data or on LLM-generated environments that risk hallucinations and benchmark contamination. We show that LLMs can instead be trained into capable search agents using synthetic environments generated entirely by rules, whose generation requires no LLM and has zero marginal cost. We build PhantomEnvironments, multi-turn RL environments from fictional worlds, where agents must search a corpus of templated articles to answer multi-hop questions. Despite sharing no facts with the real world, these strikingly simple environments yield agents that transfer to real-world multi-hop search benchmarks, often outperforming real-world training data on newer benchmarks. Trained agents generalize to unseen fictional universes, and Qwen models learn to scale their search budget roughly linearly with question difficulty, suggesting emergent search scaling from environment interaction alone. Ablating environment complexity reveals that hop count drives transfer more than constraints or comparisons: even the simplest rule-generated environments are a surprisingly effective, free resource for training generalizable LLM agents.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:26:57Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40221v1"
+  },
+  {
+    "arxiv_id": "2609.40219v1",
+    "title": "Learning Skills from Historical Action Trajectories: Action Experience Dictionary for World Action Models",
+    "authors": [
+      "Qi Lyu",
+      "Jiahua Dong",
+      "Hao Shen",
+      "Xudong Wang",
+      "Hongyuan Yu",
+      "Baichen Liu",
+      "Henghui Ding",
+      "Zhi Han",
+      "Nicu Sebe",
+      "Ivan Laptev",
+      "Fahad Shahbaz Khan",
+      "Salman Khan"
+    ],
+    "abstract": "World Action Models (WAMs) couple visual dynamics prediction with action generation, yet they do not explicitly support the reuse of action experience across manipulation tasks. Furthermore, existing WAMs struggle to capture underlying cross-task semantic relationships that could guide target action prediction, as redundant background elements interfere with the extraction of key visual information. To address these challenges, we develop a novel Action Experience Dictionary (AED) that encodes historical physical action trajectories into shared action embeddings to support skill reuse and model cross-task relationships. Specifically, we first aggregate historical actions to align with visual observations and retrieve action embeddings from the AED using a pretrained action tokenizer. Subsequently, we visually condition the pooled embeddings through cross-attention and prepend them to noisy action tokens, providing interaction context and action intent for prediction. To model action-related motion and reduce reliance on irrelevant background cues, we introduce a motion-aware transition loss that supervises visual feature change prediction over random temporal intervals. Experiments on simulation benchmarks and in real-world cross-embodiment settings verify the effectiveness of our AED. The anonymous project website is available at \\href{https://github.com/JiahuaDong/AED}{AED}.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:26:38Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40219v1"
+  },
+  {
+    "arxiv_id": "2609.40198v1",
+    "title": "SCB: SpeechConversationBench for Evaluating Multi-Turn Reasoning in Speech-to-Speech Models",
+    "authors": [
+      "Kanpat Vesessook",
+      "Saksorn Ruangtanusak"
+    ],
+    "abstract": "Speech-to-speech systems must solve tasks whose requirements emerge across conversational turns. We introduce SpeechConversationBench (SCB), a focused evaluation of spoken mathematical reasoning using 103 sharded GSM8K problems. The framework compares the original problem delivered in one turn (full), its concatenated information shards delivered together (concat), and incremental spoken disclosure across turns (sharded). We report final-answer accuracy for four commercial speech systems and LEGO, a proprietary speech pipeline developed internally by the SCBX Innovation Lab team with explicit conversational context management. Relative to concat, sharded accuracy decreases by 5.0-25.3 percentage points across the four commercial systems. LEGO achieves 77.5 percent accuracy in all three conditions, compared with 76.6 percent sharded accuracy for GPT-4o Realtime. The two single-turn baselines distinguish sensitivity to problem reformulation from the additional challenges introduced by incremental spoken interaction.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:13:30Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40198v1"
+  },
+  {
+    "arxiv_id": "2609.40195v1",
+    "title": "MemLife: Curating and Reasoning over Long-Term Egocentric Video Memories",
+    "authors": [
+      "Guangzhi Xiong",
+      "Xinyuan Zhang",
+      "Xiao Yang",
+      "Hyokun Yun",
+      "Kai Zhang",
+      "Shiun-Zu Kuo",
+      "Hyeonjeong Ha",
+      "Xilun Chen",
+      "Kai Sun",
+      "Lucas Liang",
+      "Guangqiang Dong",
+      "Ejaz Ahmed",
+      "Ahmed A Aly",
+      "Anuj Kumar",
+      "Raffay Hamid",
+      "Aidong Zhang",
+      "Xin Luna Dong"
+    ],
+    "abstract": "Long-term egocentric video enables personalized AI assistants to reason about daily life. However, as video histories grow to hundreds of hours spanning months or years, reprocessing raw clips for every query becomes computationally prohibitive. Memory systems offer a scalable alternative by compacting videos into text representations, but often fail on practical benchmarks: either the memory does not preserve key evidence, or the retriever fails to locate relevant entries due to retrieval competition in growing search spaces. To address these challenges, we introduce MemLife, a multimodal memory system that constructs entity-grounded, first-person text episodes and retrieves them via a time-indexed agentic reader. Without training or query-time video access, MemLife improves over the strongest training-free baseline by 4.6--12.0% across four long-horizon benchmarks. To further improve memory quality, we propose MemOpt, a reinforcement learning framework that optimizes the memory writer to produce faithful, informative, and retrievable memories. MemOpt consistently improves MemLife by 2.7--5.0% across different video and question distributions, with gains that generalize across writer and reader backbones and memory systems.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2026-09-30T17:11:33Z",
+    "pdf_url": "https://arxiv.org/pdf/2609.40195v1"
+  }
+]
