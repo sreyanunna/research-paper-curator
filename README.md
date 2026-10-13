@@ -3,8 +3,43 @@
 A personal, from-scratch build of a production-grade RAG system that turns arXiv
 papers into searchable, answerable knowledge. Rebuilt piece by piece (following
 the Jam with AI's*[The Mother of AI Project](https://jamwithai.substack.com/p/the-infrastructure-that-powers-rag)*) to understand every component.
-**Status: Week 1 — infrastructure complete.**
 
+Intended workflow :
+```
+ OFFLINE  (Airflow, daily, nobody waiting)                     ONLINE  (FastAPI, per request, user waiting)
+ airflow/dags/arxiv_ingestion.py                               src/routers/search.py
+
+ ┌──────────────┐                                               ┌────────────────────────────┐
+ │ arXiv API    │ ✅ services/arxiv/client.py                    │ User / UI / agent          │
+ └──────┬───────┘   (⬜ add categories + pdf_url)                │ POST /search               │
+        │ metadata                                              │ {"query":"attention",      │
+        ▼                                                       │  "categories":["cs.LG"]}   │
+ ┌──────────────┐                                               └─────────────┬──────────────┘
+ │ Download PDF │ ✅ metadata_fetcher.py                                      │
+ └──────┬───────┘                                                             ▼
+        ▼                                                       ┌────────────────────────────┐
+ ┌──────────────┐                                               │ Validate request           │ ⬜ schemas/search.py
+ │ Docling parse│ ✅ pdf_parser/docling.py                       │ (SearchRequest, Pydantic)  │
+ └──────┬───────┘   → markdown = raw_text                       └─────────────┬──────────────┘
+        ▼                                                                     ▼
+ ┌──────────────┐                                               ┌────────────────────────────┐
+ │ PostgreSQL   │ ⬜ models/ + db/   (Week 2 gap)                │ Build BM25 query           │ ⬜ opensearch/query_builder.py
+ │ source of    │                                               │ multi_match title^3 ...    │
+ │ truth        │                                               │ + filters + sort           │
+ └──────┬───────┘                                               └─────────────┬──────────────┘
+        ▼                                                                     │
+ ┌──────────────┐        ╔═════════════════════════════╗                      │
+ │ Index into   │ ─────▶ ║   OpenSearch: arxiv-papers  ║ ◀────────────────────┘  read (search)
+ │ OpenSearch   │ write  ║                             ║
+ └──────────────┘        ║  shape = index_config.py    ║ ────────────────────┐  ranked hits
+  ⬜ opensearch/client.py ║  ⚠️ needs Week 3 version    ║                      ▼
+     .index_paper()      ║  (23 demo docs right now)   ║        ┌────────────────────────────┐
+                         ╚═════════════════════════════╝        │ Normalize → SearchResponse │ ⬜ schemas/search.py
+                                    ▲                           │ {query, total, hits[]}     │
+                                    │                           └────────────────────────────┘
+                     both sides use opensearch/client.py
+                     (one class, two callers)
+```
 ## What was built (Week 1)
 
 A Docker Compose stack orchestrating containerized services on a shared private
