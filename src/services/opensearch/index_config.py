@@ -3,7 +3,42 @@
 This configuration supports both keyword search (BM25) and vector similarity search
 using HNSW algorithm for approximate nearest neighbor search.
 """
+ARXIV_PAPERS_INDEX = "arxiv-papers"
 
+# Week 3: one document per paper, BM25 keyword search only
+ARXIV_PAPERS_MAPPING = {
+    "settings": {
+        "number_of_shards": 1,
+        "number_of_replicas": 0,
+        "analysis": {
+            "analyzer": {
+                "standard_analyzer": {"type": "standard", "stopwords": "_english_"},
+                "text_analyzer": {"type": "custom", "tokenizer": "standard", "filter": ["lowercase", "stop", "snowball"]},
+            }
+        },
+    },
+    "mappings": {
+        "dynamic": "strict",
+        "properties": {
+            "arxiv_id": {"type": "keyword"},
+            "title": {
+                "type": "text",
+                "analyzer": "text_analyzer",
+                "fields": {"keyword": {"type": "keyword", "ignore_above": 256}},
+            },
+            "authors": {
+                "type": "text",
+                "analyzer": "standard_analyzer",
+                "fields": {"keyword": {"type": "keyword", "ignore_above": 256}},
+            },
+            "abstract": {"type": "text", "analyzer": "text_analyzer"},
+            "raw_text": {"type": "text", "analyzer": "text_analyzer"},
+            "categories": {"type": "keyword"},
+            "published_date": {"type": "date"},
+            "pdf_url": {"type": "keyword", "index": False},
+        },
+    },
+}
 ARXIV_PAPERS_CHUNKS_INDEX = "arxiv-papers-chunks"
 
 # Index mapping for chunked papers with vector embeddings
